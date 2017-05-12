@@ -35,7 +35,7 @@ def AuthView(request):
         request.session['X-Token']= r.headers.get('X-Subject-Token')
         print(r.headers.get('X-Subject-Token'))
         print(r.text)
-        r.tokens
+
 
     return render(request, 'app/index.html', {})
 

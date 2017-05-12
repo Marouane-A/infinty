@@ -32,8 +32,11 @@ def AuthView(request):
         headers = {'content-type': 'application/json'}
         r = requests.post(url, data=json.dumps(data), headers=headers)
         assert r.status_code == 201
+        request.session['X-Token']= r.headers.get('X-Subject-Token')
         print(r.headers.get('X-Subject-Token'))
         print(r.text)
+        r.tokens
+
     return render(request, 'app/index.html', {})
 
 
